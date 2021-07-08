@@ -1,0 +1,50 @@
+spring.jmx:
+   enabled: false
+
+spring.datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:bootexample;MODE=MySQL
+
+server:
+  port: 8090
+
+security:
+  basic:
+    enabled: false
+
+management:
+  port: 8091
+  security:
+    enabled: false 
+
+project:
+  name: hotel-review-service
+  version: 0.1
+  description: hotel-review-service
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
+
+hotel.service:
+  name: 'default profile:'
+---
+spring:
+  profiles: test
+  h2:
+    console:
+      enabled: true
+
+spring.jpa:
+    hibernate.ddl-auto: create-drop
+
+hotel.service:
+  name: 'test profile:'
+  
+logging:
+  file: hotel-service.log
+  org.hibernate: INFO
+
+ 
